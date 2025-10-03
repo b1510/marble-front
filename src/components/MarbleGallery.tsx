@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { marbleApi, Marble } from '../api/marbleApi';
 
 const MarbleGallery: React.FC = () => {
     const [marbles, setMarbles] = useState<Marble[]>([]);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const fetchMarbles = async () => {
@@ -24,8 +26,8 @@ const MarbleGallery: React.FC = () => {
                         <img src={marble.imageUrl} alt={marble.name} />
                     )}
                     <h3>{marble.name}</h3>
-                    <p>Type: {marble.type}</p>
-                    <p>Material: {marble.material}</p>
+                    <p>{t('gallery.type')}: {marble.type}</p>
+                    <p>{t('gallery.material')}: {marble.material}</p>
                 </div>
             ))}
         </div>

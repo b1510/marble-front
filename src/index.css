@@ -34,3 +34,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.language-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.language-switcher button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+.language-switcher button.active {
+  background: #007bff;
+  color: white;
+  border-color: #0056b3;
+}

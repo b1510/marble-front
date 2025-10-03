@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MarbleGallery from './components/MarbleGallery';
 import MarbleForm from './components/MarbleForm';
+import LanguageSwitcher from './components/LanguageSwitcher';
 import './App.css';
 
 const App: React.FC = () => {
@@ -10,6 +11,7 @@ const App: React.FC = () => {
             <div className="app">
                 <header>
                     <h1>Marble Collection</h1>
+                    <LanguageSwitcher />
                 </header>
                 <main>
                     <MarbleForm />
