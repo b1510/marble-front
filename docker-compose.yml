@@ -5,17 +5,30 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: production  # Toujours production sur le VPS
+      target: production
     container_name: frontend
     restart: always
     networks:
       - traefik-network
     labels:
       - "traefik.enable=true"
+      
+      # Router HTTP pour les challenges ACME
+      - "traefik.http.routers.frontend-http.rule=Host(`samyhama.fr`) || Host(`www.samyhama.fr`)"
+      - "traefik.http.routers.frontend-http.entrypoints=web"
+      - "traefik.http.routers.frontend-http.middlewares=redirect-to-https"
+      
+      # Middleware de redirection HTTP -> HTTPS
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+      
+      # Router HTTPS
       - "traefik.http.routers.frontend.rule=Host(`samyhama.fr`) || Host(`www.samyhama.fr`)"
       - "traefik.http.routers.frontend.entrypoints=websecure"
       - "traefik.http.routers.frontend.tls=true"
       - "traefik.http.routers.frontend.tls.certresolver=myresolver"
+      
+      # Service
       - "traefik.http.services.frontend.loadbalancer.server.port=80"
       - "traefik.docker.network=traefik-network"
 
