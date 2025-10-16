@@ -50,5 +50,6 @@
   },
   "devDependencies": {
     "@types/react-i18next": "^7.8.3"
-  }
+  },
+  "proxy": "https://api.samyhama.fr"
 }
