@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { marbleApi } from '../api/marbleApi';
 
 const MarbleForm: React.FC = () => {
+    const { t } = useTranslation();
     const [name, setName] = useState('');
     const [type, setType] = useState('Bille');
     const [image, setImage] = useState<File | null>(null);
@@ -25,7 +27,7 @@ const MarbleForm: React.FC = () => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">{t('form.name')}:</label>
                 <input
                     type="text"
                     id="name"
@@ -35,24 +37,24 @@ const MarbleForm: React.FC = () => {
                 />
             </div>
             <div>
-                <label htmlFor="type">Type:</label>
+                <label htmlFor="type">{t('form.type')}:</label>
                 <select id="type" value={type} onChange={(e) => setType(e.target.value)}>
-                    <option>Bille</option>
-                    <option>Calot</option>
-                    <option>Boulard</option>
-                    <option>Mibs</option>
-                    <option>Shooter</option>
+                    {Object.keys(t('form.marbleTypes', { returnObjects: true })).map(type => (
+                        <option key={type} value={type}>
+                            {t(`form.marbleTypes.${type}`)}
+                        </option>
+                    ))}
                 </select>
             </div>
             <div>
-                <label htmlFor="image">Image:</label>
+                <label htmlFor="image">{t('form.image')}:</label>
                 <input
                     type="file"
                     id="image"
                     onChange={(e) => setImage(e.target.files?.[0] || null)}
                 />
             </div>
-            <button type="submit">Add Marble</button>
+            <button type="submit">{t('form.submit')}</button>
         </form>
     );
 };

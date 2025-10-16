@@ -2,6 +2,39 @@
   "gallery": {
     "title": "Galerie de Billes",
     "type": "Type",
-    "material": "Matériau"
+    "material": "Matériau",
+    "color": "Color",
+    "glass": "Verre",
+    "size": "Taille",
+    "image": "Image",
+    "actions": "Actions",
+    "edit": "Editer",
+    "delete": "Supprimer",
+    "noMarbles": "Pas de billes disponible."
+  },
+  "marbleTypes": {
+    "glass": "Verre",
+    "ceramic": "Céramique",
+    "stone": "Pierre"
+  },
+  "materials": {
+    "glass": "Verre",
+    "ceramic": "Céramique",
+    "marble": "Marbre",
+    "granite": "Granit"
+  },
+  "form": {
+    "title": "Ajouter une bille",
+    "name": "Nom",
+    "type": "Type",
+    "image": "Image",
+    "submit": "Ajouter",
+    "marbleTypes": {
+      "Bille": "Bille",
+      "Calot": "Calot",
+      "Boulard": "Boulard",
+      "Mibs": "Mibs",
+      "Shooter": "Shooter"
+    }
   }
 }

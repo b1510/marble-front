@@ -26,8 +26,8 @@ const MarbleGallery: React.FC = () => {
                         <img src={marble.imageUrl} alt={marble.name} />
                     )}
                     <h3>{marble.name}</h3>
-                    <p>{t('gallery.type')}: {marble.type}</p>
-                    <p>{t('gallery.material')}: {marble.material}</p>
+                    <p>{t('gallery.type')}: {t(`marbleTypes.${marble.type.toLowerCase()}`)}</p>
+                    <p>{t('gallery.material')}: {t(`materials.${marble.material.toLowerCase()}`)}</p>
                 </div>
             ))}
         </div>

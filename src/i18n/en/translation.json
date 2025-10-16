@@ -2,6 +2,39 @@
   "gallery": {
     "title": "Marble Gallery",
     "type": "Type",
-    "material": "Material"
+    "material": "Material",
+    "color": "Color",
+    "glass": "Glass",
+    "size": "Size",
+    "image": "Image",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "noMarbles": "No marbles available."
+  },
+  "marbleTypes": {
+    "glass": "Glass",
+    "ceramic": "Ceramic",
+    "stone": "Stone"
+  },
+  "materials": {
+    "glass": "Glass",
+    "ceramic": "Ceramic",
+    "marble": "Marble",
+    "granite": "Granite"
+  },
+  "form": {
+    "title": "Add a Marble",
+    "name": "Name",
+    "type": "Type",
+    "image": "Image",
+    "submit": "Add",
+    "marbleTypes": {
+      "Bille": "Marble",
+      "Calot": "Taw",
+      "Boulard": "Boulder",
+      "Mibs": "Mibs",
+      "Shooter": "Shooter"
+    }
   }
 }
