@@ -8,6 +8,7 @@ RUN npm install
 FROM base AS development
 COPY . .
 EXPOSE 3000
+ENV NODE_ENV=development
 CMD ["npm", "start"]
 
 # Stage build pour prod
