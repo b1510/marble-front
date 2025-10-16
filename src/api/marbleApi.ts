@@ -11,7 +11,7 @@ export interface Marble {
     imageUrl?: string;
 }
 
-const API_URL = 'https://localhost:5001/api/marbles';
+const API_URL = 'https://api.samyhama.fr/api/marbles';
 
 export const marbleApi = {
     async getAll(): Promise<Marble[]> {
