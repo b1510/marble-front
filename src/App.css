@@ -42,9 +42,10 @@ body {
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
   padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
+  gap: 2rem;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -63,13 +64,14 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  white-space: nowrap;
 }
 
 .navbar-menu {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
-  gap: 1.5rem;
-  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: 2rem;
 }
 
 .nav-link {
@@ -79,7 +81,7 @@ body {
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   transition: var(--transition);
-  position: relative;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -130,6 +132,7 @@ body {
 /* Galerie */
 .gallery {
   width: 100%;
+  display: block;
 }
 
 .gallery-header {
@@ -137,6 +140,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3rem;
+  width: 100%;
 }
 
 .gallery-title {
@@ -460,6 +464,7 @@ body {
   display: flex;
   gap: 0.5rem;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .language-switcher button {
@@ -471,6 +476,7 @@ body {
   cursor: pointer;
   transition: var(--transition);
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .language-switcher button:hover {
@@ -500,13 +506,27 @@ body {
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 1rem;
-    position: relative;
   }
 
   .navbar-menu {
     gap: 1rem;
+    justify-content: center;
+  }
+
+  .navbar-brand h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-menu {
+    justify-content: center;
   }
 
   .main-content {

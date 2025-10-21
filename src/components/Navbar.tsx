@@ -14,20 +14,16 @@ const Navbar: React.FC = () => {
                     <h1>Marble Collection</h1>
                 </Link>
             </div>
+            <LanguageSwitcher />
             <div className="navbar-menu">
+                
                 <Link 
                     to="/" 
                     className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
                 >
                     {t('nav.gallery')}
                 </Link>
-                <Link 
-                    to="/add" 
-                    className={`nav-link ${location.pathname === '/add' ? 'active' : ''}`}
-                >
-                    {t('nav.addMarble')}
-                </Link>
-                <LanguageSwitcher />
+                
             </div>
         </nav>
     );
