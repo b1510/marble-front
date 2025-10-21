@@ -1,40 +1,57 @@
 {
+  "nav": {
+    "gallery": "Galerie",
+    "addMarble": "Ajouter une bille",
+    "backToGallery": "Retour à la galerie"
+  },
   "gallery": {
-    "title": "Galerie de Billes",
+    "title": "Collection de Billes",
+    "subtitle": "Découvrez notre magnifique collection de billes",
     "type": "Type",
     "material": "Matériau",
-    "color": "Color",
-    "glass": "Verre",
-    "size": "Taille",
-    "image": "Image",
-    "actions": "Actions",
-    "edit": "Editer",
-    "delete": "Supprimer",
-    "noMarbles": "Pas de billes disponible."
+    "empty": "Aucune bille dans la collection",
+    "emptyDescription": "Commencez par ajouter votre première bille à la collection"
   },
   "marbleTypes": {
     "glass": "Verre",
     "ceramic": "Céramique",
-    "stone": "Pierre"
+    "stone": "Pierre",
+    "bille": "Bille",
+    "calot": "Calot",
+    "boulard": "Boulard",
+    "mibs": "Mibs",
+    "shooter": "Shooter"
   },
   "materials": {
     "glass": "Verre",
     "ceramic": "Céramique",
     "marble": "Marbre",
-    "granite": "Granit"
+    "granite": "Granit",
+    "steel": "Acier",
+    "wood": "Bois"
   },
   "form": {
-    "title": "Ajouter une bille",
+    "title": "Ajouter une nouvelle bille",
+    "description": "Remplissez les informations pour ajouter une bille à votre collection",
     "name": "Nom",
+    "description": "Description",
     "type": "Type",
+    "diameterInMm": "Diamètre (mm)",
+    "color": "Couleur",
+    "material": "Matériau",
+    "weight": "Poids (g)",
+    "pattern": "Motif",
+    "isRare": "Bille rare",
+    "productionDate": "Date de production",
     "image": "Image",
-    "submit": "Ajouter",
-    "marbleTypes": {
-      "Bille": "Bille",
-      "Calot": "Calot",
-      "Boulard": "Boulard",
-      "Mibs": "Mibs",
-      "Shooter": "Shooter"
-    }
+    "submit": "Ajouter la bille",
+    "rare": "Rare",
+    "common": "Commune"
+  },
+  "detail": {
+    "notFound": "Bille non trouvée"
+  },
+  "common": {
+    "loading": "Chargement..."
   }
 }

@@ -3,58 +3,203 @@ import { useTranslation } from 'react-i18next';
 import { marbleApi } from '../api/marbleApi';
 
 const MarbleForm: React.FC = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        description: '',
+        type: 'Bille',
+        diameterInMm: 0,
+        color: '',
+        material: 'Glass',
+        weight: 0,
+        pattern: '',
+        isRare: false,
+        productionDate: '',
+        image: null as File | null
+    });
     const { t } = useTranslation();
-    const [name, setName] = useState('');
-    const [type, setType] = useState('Bille');
-    const [image, setImage] = useState<File | null>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('type', type);
-        if (image) formData.append('image', image);
-
         try {
-            await marbleApi.create(formData);
-            setName('');
-            setImage(null);
+            const formDataToSend = new FormData();
+            formDataToSend.append('Name', formData.name);
+            formDataToSend.append('Description', formData.description);
+            formDataToSend.append('Type', formData.type);
+            formDataToSend.append('DiameterInMm', formData.diameterInMm.toString());
+            formDataToSend.append('Color', formData.color);
+            formDataToSend.append('Material', formData.material);
+            formDataToSend.append('Weight', formData.weight.toString());
+            formDataToSend.append('Pattern', formData.pattern);
+            formDataToSend.append('IsRare', formData.isRare.toString());
+            formDataToSend.append('ProductionDate', formData.productionDate);
+            if (formData.image) {
+                formDataToSend.append('Image', formData.image);
+            }
+            
+            await marbleApi.create(formDataToSend);
+            setFormData({
+                name: '',
+                description: '',
+                type: 'Bille',
+                diameterInMm: 0,
+                color: '',
+                material: 'Glass',
+                weight: 0,
+                pattern: '',
+                isRare: false,
+                productionDate: '',
+                image: null
+            });
         } catch (error) {
             console.error('Error creating marble:', error);
         }
     };
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value, type } = e.target;
+        if (type === 'checkbox') {
+            const checked = (e.target as HTMLInputElement).checked;
+            setFormData(prev => ({ ...prev, [name]: checked }));
+        } else if (type === 'file') {
+            const file = (e.target as HTMLInputElement).files?.[0] || null;
+            setFormData(prev => ({ ...prev, [name]: file }));
+        } else {
+            setFormData(prev => ({ ...prev, [name]: value }));
+        }
+    };
+
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="name">{t('form.name')}:</label>
+        <form onSubmit={handleSubmit} className="marble-form">
+            <div className="form-group">
+                <label>{t('form.name')}</label>
                 <input
                     type="text"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     required
                 />
             </div>
-            <div>
-                <label htmlFor="type">{t('form.type')}:</label>
-                <select id="type" value={type} onChange={(e) => setType(e.target.value)}>
-                    {Object.keys(t('form.marbleTypes', { returnObjects: true })).map(type => (
-                        <option key={type} value={type}>
-                            {t(`form.marbleTypes.${type}`)}
-                        </option>
-                    ))}
-                </select>
-            </div>
-            <div>
-                <label htmlFor="image">{t('form.image')}:</label>
-                <input
-                    type="file"
-                    id="image"
-                    onChange={(e) => setImage(e.target.files?.[0] || null)}
+
+            <div className="form-group">
+                <label>{t('form.description')}</label>
+                <textarea
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    rows={3}
                 />
             </div>
-            <button type="submit">{t('form.submit')}</button>
+
+            <div className="form-group">
+                <label>{t('form.type')}</label>
+                <select name="type" value={formData.type} onChange={handleChange}>
+                    <option value="Bille">Bille</option>
+                    <option value="Calot">Calot</option>
+                    <option value="Boulard">Boulard</option>
+                    <option value="Mibs">Mibs</option>
+                    <option value="Shooter">Shooter</option>
+                </select>
+            </div>
+
+            <div className="form-group">
+                <label>{t('form.diameterInMm')}</label>
+                <input
+                    type="number"
+                    name="diameterInMm"
+                    value={formData.diameterInMm}
+                    onChange={handleChange}
+                    step="0.1"
+                    min="0"
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>{t('form.color')}</label>
+                <input
+                    type="text"
+                    name="color"
+                    value={formData.color}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>{t('form.material')}</label>
+                <select name="material" value={formData.material} onChange={handleChange}>
+                    <option value="Glass">Glass</option>
+                    <option value="Terracotta">Terracotta</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Marble">Marble</option>
+                    <option value="Wood">Wood</option>
+                    <option value="Clay">Clay</option>
+                    <option value="Porcelain">Porcelain</option>
+                    <option value="Agate">Agate</option>
+                    <option value="Ceramic">Ceramic</option>
+                </select>
+            </div>
+
+            <div className="form-group">
+                <label>{t('form.weight')}</label>
+                <input
+                    type="number"
+                    name="weight"
+                    value={formData.weight}
+                    onChange={handleChange}
+                    step="0.1"
+                    min="0"
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>{t('form.pattern')}</label>
+                <input
+                    type="text"
+                    name="pattern"
+                    value={formData.pattern}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div className="form-group">
+                <div className="checkbox-group">
+                    <input
+                        type="checkbox"
+                        name="isRare"
+                        checked={formData.isRare}
+                        onChange={handleChange}
+                    />
+                    <label>{t('form.isRare')}</label>
+                </div>
+            </div>
+
+            <div className="form-group">
+                <label>{t('form.productionDate')}</label>
+                <input
+                    type="date"
+                    name="productionDate"
+                    value={formData.productionDate}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>{t('form.image')}</label>
+                <input
+                    type="file"
+                    name="image"
+                    onChange={handleChange}
+                    accept="image/*"
+                />
+            </div>
+
+            <button type="submit" className="btn btn-primary">
+                {t('form.submit')}
+            </button>
         </form>
     );
 };

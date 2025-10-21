@@ -1,40 +1,57 @@
 {
+  "nav": {
+    "gallery": "Gallery",
+    "addMarble": "Add Marble",
+    "backToGallery": "Back to Gallery"
+  },
   "gallery": {
-    "title": "Marble Gallery",
+    "title": "Marble Collection",
+    "subtitle": "Discover our beautiful marble collection",
     "type": "Type",
     "material": "Material",
-    "color": "Color",
-    "glass": "Glass",
-    "size": "Size",
-    "image": "Image",
-    "actions": "Actions",
-    "edit": "Edit",
-    "delete": "Delete",
-    "noMarbles": "No marbles available."
+    "empty": "No marbles in collection",
+    "emptyDescription": "Start by adding your first marble to the collection"
   },
   "marbleTypes": {
     "glass": "Glass",
     "ceramic": "Ceramic",
-    "stone": "Stone"
+    "stone": "Stone",
+    "bille": "Marble",
+    "calot": "Shooter",
+    "boulard": "Boulder",
+    "mibs": "Mibs",
+    "shooter": "Shooter"
   },
   "materials": {
     "glass": "Glass",
     "ceramic": "Ceramic",
     "marble": "Marble",
-    "granite": "Granite"
+    "granite": "Granite",
+    "steel": "Steel",
+    "wood": "Wood"
   },
   "form": {
-    "title": "Add a Marble",
+    "title": "Add New Marble",
+    "description": "Fill in the information to add a marble to your collection",
     "name": "Name",
+    "description": "Description",
     "type": "Type",
+    "diameterInMm": "Diameter (mm)",
+    "color": "Color",
+    "material": "Material",
+    "weight": "Weight (g)",
+    "pattern": "Pattern",
+    "isRare": "Rare marble",
+    "productionDate": "Production Date",
     "image": "Image",
-    "submit": "Add",
-    "marbleTypes": {
-      "Bille": "Marble",
-      "Calot": "Taw",
-      "Boulard": "Boulder",
-      "Mibs": "Mibs",
-      "Shooter": "Shooter"
-    }
+    "submit": "Add Marble",
+    "rare": "Rare",
+    "common": "Common"
+  },
+  "detail": {
+    "notFound": "Marble not found"
+  },
+  "common": {
+    "loading": "Loading..."
   }
 }

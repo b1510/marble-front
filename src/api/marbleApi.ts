@@ -1,7 +1,9 @@
 export interface Marble {
     id?: number;
     name: string;
+    description?: string;
     type: string;
+    diameterInMm: number;
     color: string;
     material: string;
     weight: number;

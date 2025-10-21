@@ -1,22 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MarbleGallery from './components/MarbleGallery';
-import MarbleForm from './components/MarbleForm';
-import LanguageSwitcher from './components/LanguageSwitcher';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import AddMarble from './pages/AddMarble';
+import MarbleDetail from './pages/MarbleDetail';
 
 const App: React.FC = () => {
     return (
         <Router>
             <div className="app">
-                <header>
-                    <h1>Marble Collection</h1>
-                    <LanguageSwitcher />
-                </header>
-                <main>
-                    <MarbleForm />
+                <Navbar />
+                <main className="main-content">
                     <Routes>
-                        <Route path="/" element={<MarbleGallery />} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/add" element={<AddMarble />} />
+                        <Route path="/marble/:id" element={<MarbleDetail />} />
                     </Routes>
                 </main>
             </div>
