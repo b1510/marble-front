@@ -95,11 +95,11 @@ const MarbleForm: React.FC = () => {
             <div className="form-group">
                 <label>{t('form.type')}</label>
                 <select name="type" value={formData.type} onChange={handleChange}>
-                    <option value="Bille">Bille</option>
-                    <option value="Calot">Calot</option>
-                    <option value="Boulard">Boulard</option>
-                    <option value="Mibs">Mibs</option>
-                    <option value="Shooter">Shooter</option>
+                    <option value="Bille">{t('marbleTypes.bille')}</option>
+                    <option value="Calot">{t('marbleTypes.calot')}</option>
+                    <option value="Boulard">{t('marbleTypes.boulard')}</option>
+                    <option value="Mibs">{t('marbleTypes.mibs')}</option>
+                    <option value="Shooter">{t('marbleTypes.shooter')}</option>
                 </select>
             </div>
 
