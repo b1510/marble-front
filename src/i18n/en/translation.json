@@ -28,7 +28,11 @@
     "marble": "Marble",
     "granite": "Granite",
     "steel": "Steel",
-    "wood": "Wood"
+    "wood": "Wood",
+    "terracotta": "Terracotta",
+    "clay": "Clay",
+    "porcelain": "Porcelain",
+    "agate": "Agate"
   },
   "form": {
     "title": "Add New Marble",

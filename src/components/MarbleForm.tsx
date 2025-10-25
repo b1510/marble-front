@@ -3,17 +3,18 @@ import { useTranslation } from 'react-i18next';
 import { marbleApi } from '../api/marbleApi';
 
 const MarbleForm: React.FC = () => {
+    const today = new Date().toISOString().split('T')[0];
     const [formData, setFormData] = useState({
         name: '',
         description: '',
         type: 'Bille',
-        diameterInMm: 0,
+        diameterInMm: 16,
         color: '',
         material: 'Glass',
         weight: 0,
         pattern: '',
         isRare: false,
-        productionDate: '',
+        productionDate: today,
         image: null as File | null
     });
     const { t } = useTranslation();
@@ -41,13 +42,13 @@ const MarbleForm: React.FC = () => {
                 name: '',
                 description: '',
                 type: 'Bille',
-                diameterInMm: 0,
+                diameterInMm: 16,
                 color: '',
                 material: 'Glass',
                 weight: 0,
                 pattern: '',
                 isRare: false,
-                productionDate: '',
+                productionDate: today,
                 image: null
             });
         } catch (error) {
@@ -111,7 +112,6 @@ const MarbleForm: React.FC = () => {
                     onChange={handleChange}
                     step="0.1"
                     min="0"
-                    required
                 />
             </div>
 
@@ -122,22 +122,21 @@ const MarbleForm: React.FC = () => {
                     name="color"
                     value={formData.color}
                     onChange={handleChange}
-                    required
                 />
             </div>
 
             <div className="form-group">
                 <label>{t('form.material')}</label>
                 <select name="material" value={formData.material} onChange={handleChange}>
-                    <option value="Glass">Glass</option>
-                    <option value="Terracotta">Terracotta</option>
-                    <option value="Steel">Steel</option>
-                    <option value="Marble">Marble</option>
-                    <option value="Wood">Wood</option>
-                    <option value="Clay">Clay</option>
-                    <option value="Porcelain">Porcelain</option>
-                    <option value="Agate">Agate</option>
-                    <option value="Ceramic">Ceramic</option>
+                    <option value="Glass">{t('materials.glass')}</option>
+                    <option value="Terracotta">{t('materials.terracotta')}</option>
+                    <option value="Steel">{t('materials.steel')}</option>
+                    <option value="Marble">{t('materials.marble')}</option>
+                    <option value="Wood">{t('materials.wood')}</option>
+                    <option value="Clay">{t('materials.clay')}</option>
+                    <option value="Porcelain">{t('materials.porcelain')}</option>
+                    <option value="Agate">{t('materials.agate')}</option>
+                    <option value="Ceramic">{t('materials.ceramic')}</option>
                 </select>
             </div>
 
@@ -150,7 +149,6 @@ const MarbleForm: React.FC = () => {
                     onChange={handleChange}
                     step="0.1"
                     min="0"
-                    required
                 />
             </div>
 
@@ -183,7 +181,6 @@ const MarbleForm: React.FC = () => {
                     name="productionDate"
                     value={formData.productionDate}
                     onChange={handleChange}
-                    required
                 />
             </div>
 
