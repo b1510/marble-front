@@ -53,5 +53,19 @@
   },
   "common": {
     "loading": "Chargement..."
+  },
+  "auth": {
+    "register": "S'inscrire",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "email": "Email",
+    "password": "Mot de passe",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "noAccount": "Pas encore de compte ?",
+    "registerError": "Erreur lors de l'inscription",
+    "loginError": "Email ou mot de passe incorrect",
+    "mustBeLoggedIn": "Vous devez être connecté pour ajouter une bille"
   }
 }

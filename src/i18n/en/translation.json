@@ -57,5 +57,19 @@
   },
   "common": {
     "loading": "Loading..."
+  },
+  "auth": {
+    "register": "Register",
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "alreadyHaveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "registerError": "Registration failed",
+    "loginError": "Invalid email or password",
+    "mustBeLoggedIn": "You must be logged in to add a marble"
   }
 }

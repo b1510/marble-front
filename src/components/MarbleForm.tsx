@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, Link } from 'react-router-dom';
 import { marbleApi } from '../api/marbleApi';
+import { authStorage } from '../api/authApi';
 
 const MarbleForm: React.FC = () => {
     const today = new Date().toISOString().split('T')[0];
+    const token = authStorage.getToken();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         description: '',
@@ -21,6 +25,13 @@ const MarbleForm: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        if (!token) {
+            alert(t('auth.mustBeLoggedIn'));
+            navigate('/login');
+            return;
+        }
+        
         try {
             const formDataToSend = new FormData();
             formDataToSend.append('Name', formData.name);
@@ -37,7 +48,7 @@ const MarbleForm: React.FC = () => {
                 formDataToSend.append('Image', formData.image);
             }
             
-            await marbleApi.create(formDataToSend);
+            await marbleApi.create(formDataToSend, token);
             setFormData({
                 name: '',
                 description: '',

@@ -23,11 +23,13 @@ export const marbleApi = {
         return response.json();
     },
 
-    async create(marble: FormData): Promise<Marble> {
+    async create(marble: FormData, token: string): Promise<Marble> {
         const response = await fetch(API_URL, {
             method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` },
             body: marble
         });
+        if (!response.ok) throw new Error('Failed to create marble');
         return response.json();
     }
 };
