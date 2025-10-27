@@ -15,7 +15,7 @@ export interface Marble {
 
 const API_URL = process.env.NODE_ENV === 'production' 
     ? 'https://api.samyhama.fr/api/marbles'
-    : '/api/marbles';
+    : 'http://127.0.0.1:5000/api/marbles';
 
 export const marbleApi = {
     async getAll(): Promise<Marble[]> {
