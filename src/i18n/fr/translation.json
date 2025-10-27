@@ -66,6 +66,8 @@
     "noAccount": "Pas encore de compte ?",
     "registerError": "Erreur lors de l'inscription",
     "loginError": "Email ou mot de passe incorrect",
-    "mustBeLoggedIn": "Vous devez être connecté pour ajouter une bille"
+    "mustBeLoggedIn": "Vous devez être connecté pour ajouter une bille",
+    "loginRequired": "Connexion requise",
+    "loginRequiredMessage": "Vous devez être connecté pour ajouter une bille à la collection"
   }
 }

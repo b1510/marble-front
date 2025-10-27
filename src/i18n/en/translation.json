@@ -70,6 +70,8 @@
     "noAccount": "Don't have an account?",
     "registerError": "Registration failed",
     "loginError": "Invalid email or password",
-    "mustBeLoggedIn": "You must be logged in to add a marble"
+    "mustBeLoggedIn": "You must be logged in to add a marble",
+    "loginRequired": "Login Required",
+    "loginRequiredMessage": "You must be logged in to add a marble to the collection"
   }
 }
